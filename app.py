@@ -5,7 +5,7 @@ import plotly.express as px
 
 st.set_page_config(layout='wide')
 
-df = pd.read_csv('india.csv')
+df = pd.read_csv('Bharat.csv')
 
 list_of_states = list(df['State'].unique())
 list_of_states.insert(0,'Overall India')
@@ -24,7 +24,7 @@ if plot:
     st.text('Color represents secondary parameter')
     if selected_state == 'Overall India':
         # plot for india
-        fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", size=primary, color=secondary, zoom=3,size_max=35,
+        fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", size=primary, color=secondary, zoom=3,size_max=20,
                                 mapbox_style="carto-positron",width=1200,height=700,hover_name='District')
 
         st.plotly_chart(fig,use_container_width=True)
